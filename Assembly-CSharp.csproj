@@ -62,8 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\NewBehaviourScript.cs" />
+    <Compile Include="Assets\GameMagerStart.cs" />
+    <Compile Include="Assets\Scripts\ButtonAudio.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameManagerStart.cs" />
+    <Compile Include="Assets\Scripts\SnakeMove.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\WallBoxMap.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProject/Snake_U3d2019.2.6f1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
