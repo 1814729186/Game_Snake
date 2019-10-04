@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - SnakeHead
+  - SnakeBody
+  - Food
+  - Boom
+  - Energy
+  - Mushroom
+  - PosionousGrass
+  - Sheild
+  - SmartGrass
   layers:
   - Default
   - TransparentFX

@@ -37,4 +37,8 @@ public class GameManagerStart : MonoBehaviour
     {
         Application.LoadLevel(sceneName);
     }
+    public void ChangeSkin(int skin)
+    {
+        PlayerSnake.SnakeSkin(skin);
+    }
 }
