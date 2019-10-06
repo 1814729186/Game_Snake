@@ -89,10 +89,15 @@ public class PlayerSnake : MonoBehaviour
     /// </summary>
     public void DistoryBody()
     {
-        GameObject obj = bodyList[bodyList.Count - 1].gameObject;
-        GameObject.Destroy(obj);
-        bodyList.RemoveAt(bodyList.Count - 1);
-        bodyListLastTransform.RemoveAt(bodyListLastTransform.Count-1);
+        if(bodyList.Count >0)
+        {
+            GameObject obj = bodyList[bodyList.Count - 1].gameObject;
+            GameObject.Destroy(obj);
+            bodyList.RemoveAt(bodyList.Count - 1);
+            if(bodyListLastTransform.Count > 0)
+                bodyListLastTransform.RemoveAt(bodyListLastTransform.Count - 1);
+        }
+        
     }
 
     private void Move()
@@ -140,8 +145,9 @@ public class PlayerSnake : MonoBehaviour
             if (sheildState) ResetSheild();
             else
             {
+                if (bodyList.Count <= 1) GameOver();
                 int length = bodyList.Count;
-                for (int i = length - 1; i > length / 2; i--)
+                for (int i = 0; i < length / 2; i++)
                     DistoryBody();
                 score /= 2;
             }
@@ -214,5 +220,26 @@ public class PlayerSnake : MonoBehaviour
         GameObject.Find("UIinformation").GetComponent<Canvas>().enabled = false;
         GameObject.Find("GameOverUI").GetComponent<Canvas>().enabled = true;
     }
+    
+    /// <summary>
+    /// 得到最近的food的坐标
+    /// </summary>
+    /// <returns></returns>
+    //private int[] GetTheTarget()
+    //{
+    //    int x = (int)transform.position.x;
+    //    int y = (int)transform.position.y;//取得当前坐标点的坐标，并进行取整操作
+    //    //开始遍历寻找最近的Food
+    //    int dis = 0;
+    //    while(true)
+    //    {
+
+    //    }
+    //}
+    //GameObject ItemFinder;
+    //private bool IsFood(int x,int y)
+    //{
         
+    //    trans.position = new Vector3(x, y, 0);
+    //}
 }

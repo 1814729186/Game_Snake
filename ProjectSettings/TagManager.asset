@@ -14,6 +14,8 @@ TagManager:
   - PosionousGrass
   - Sheild
   - SmartGrass
+  - Thron
+  - Diamond
   layers:
   - Default
   - TransparentFX
