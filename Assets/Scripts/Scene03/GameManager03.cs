@@ -45,15 +45,22 @@ public class GameManager03 : MonoBehaviour
     }
     private void CreatFood()
     {
-        
-        Instantiate(food, foodTra, new Quaternion(0, 0, 0, 0));
-        foodTra += new Vector3(9, 0, 0);
+
+
+        for(int i = 0;i < 8;i++)
+        {
+            int xRam = random.Next(-8, 8);
+            int yRam = random.Next(-8, 8);
+            Instantiate(food, foodTra + new Vector3(xRam, yRam), new Quaternion(0, 0, 0, 0));
+        }
+
+        foodTra += new Vector3(18, 0, 0);
         //生成4个方块
-        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,3,0),new Quaternion(0,0,0,0));
-        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,1,0),new Quaternion(0,0,0,0));
-        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,-1,0),new Quaternion(0,0,0,0));
-        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,-3,0),new Quaternion(0,0,0,0));
-        foodTra += new Vector3(9,0,0);
+        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,6.75f,0),new Quaternion(0,0,0,0));
+        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,2.25f,0),new Quaternion(0,0,0,0));
+        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,-2.25f,0),new Quaternion(0,0,0,0));
+        Instantiate(diamonds[random.Next(0,4)],foodTra + new Vector3(0,-6.75f,0),new Quaternion(0,0,0,0));
+        foodTra += new Vector3(18,0,0);
     }
     private void Update()
     {
@@ -81,5 +88,9 @@ public class GameManager03 : MonoBehaviour
     {
         GameObject.Find("PauseUI").GetComponent<Canvas>().enabled = false;
         Time.timeScale = 1;
+    }
+    public void LoadScene(int sceneNum)
+    {
+        Application.LoadLevel(sceneNum);
     }
 }

@@ -16,6 +16,9 @@ TagManager:
   - SmartGrass
   - Thron
   - Diamond
+  - Line
+  - RotateBox
+  - LineBox
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 Great By mysz
@@ -31,6 +32,10 @@ public class SnakePlayer3 : MonoBehaviour
         snakeSkin = skin;
     }
     public int score = 0;//记录当前的分数
+
+    public Text lengthText;
+    public Text scoreText;
+    public Text gameOverText;
     private void Start()
     {
         //设置snake的皮肤
@@ -44,6 +49,9 @@ public class SnakePlayer3 : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        score = (int)transform.position.x / 10;
+        scoreText.GetComponent<Text>().text =score.ToString();
+        lengthText.GetComponent<Text>().text = (bodyList.Count + 1).ToString();
         pos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
         if ((pos - transform.position).magnitude >= distanceCanMove)//鼠标与snakehead之间的距离达到一定值才可以更改运动的方向
         {
@@ -179,6 +187,7 @@ public class SnakePlayer3 : MonoBehaviour
         Destroy(this);
         GameObject.Find("UIinformation").GetComponent<Canvas>().enabled = false;
         GameObject.Find("GameOverUI").GetComponent<Canvas>().enabled = true;
+        gameOverText.GetComponent<Text>().text = score.ToString();
         Time.timeScale = 0;
     }
     private void Pass()

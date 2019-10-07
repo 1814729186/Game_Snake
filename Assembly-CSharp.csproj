@@ -63,12 +63,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameMagerStart.cs" />
+    <Compile Include="Assets\Scripts\AudioManager01.cs" />
+    <Compile Include="Assets\Scripts\AudioManagerAll.cs" />
     <Compile Include="Assets\Scripts\ButtonAudio.cs" />
     <Compile Include="Assets\Scripts\FoodFinder.cs" />
     <Compile Include="Assets\Scripts\GameItemManager.cs" />
     <Compile Include="Assets\Scripts\GameManagerStart.cs" />
     <Compile Include="Assets\Scripts\GameMap01.cs" />
+    <Compile Include="Assets\Scripts\LevelAll.cs" />
     <Compile Include="Assets\Scripts\PlayerSnake.cs" />
+    <Compile Include="Assets\Scripts\Scene02Scripts\GameManager02.cs" />
     <Compile Include="Assets\Scripts\Scene02Scripts\Monster.cs" />
     <Compile Include="Assets\Scripts\Scene02Scripts\PalyerSnake02.cs" />
     <Compile Include="Assets\Scripts\Scene02Scripts\Thron.cs" />
@@ -77,6 +81,12 @@
     <Compile Include="Assets\Scripts\Scene03\FoodScene03.cs" />
     <Compile Include="Assets\Scripts\Scene03\GameManager03.cs" />
     <Compile Include="Assets\Scripts\Scene03\SnakePlayer3.cs" />
+    <Compile Include="Assets\Scripts\Scene4\GameColor.cs" />
+    <Compile Include="Assets\Scripts\Scene4\GameManager4.cs" />
+    <Compile Include="Assets\Scripts\Scene4\Level04.cs" />
+    <Compile Include="Assets\Scripts\Scene4\Line.cs" />
+    <Compile Include="Assets\Scripts\Scene4\LineBox.cs" />
+    <Compile Include="Assets\Scripts\Scene4\RotateBox.cs" />
     <Compile Include="Assets\Scripts\Scene4\SnakePlayer4.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\WallBoxMap.cs" />

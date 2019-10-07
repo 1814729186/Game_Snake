@@ -198,4 +198,8 @@ public class GameMap01:MonoBehaviour
         Time.timeScale = 1;
         GameObject.Find("PauseUI").GetComponent<Canvas>().enabled = false;
     }
+    public void LoadScene(int sceneNum)
+    {
+        Application.LoadLevel(sceneNum);
+    }
 }

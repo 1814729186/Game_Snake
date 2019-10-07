@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PalyerSnake02 : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PalyerSnake02 : MonoBehaviour
     public GameObject snakeBody;
     public Sprite[] snakeHeadSprites = new Sprite[4];
     public Sprite[] snakeBodySprites = new Sprite[4];
+
+    public Text scoreText;
+    public Text bodyLengthText;
+    public Text GameOverText;
 
     private static int snakeSkin = 0;//设置蛇的皮肤，static类型便于直接进行修改
     public static void SnakeSkin(int skin)//定义静态方法，提供操作入口
@@ -41,6 +46,8 @@ public class PalyerSnake02 : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        scoreText.GetComponent<Text>().text = score.ToString();
+        bodyLengthText.GetComponent<Text>().text = (bodyList.Count + 1).ToString();
         pos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
         if ((alwaysFolloeMouse == true && (pos - transform.position).magnitude >= distanceCanMove) || (alwaysFolloeMouse == false && Input.GetMouseButtonDown(0)))//鼠标与snakehead之间的距离达到一定值才可以更改运动的方向
         {
@@ -136,19 +143,21 @@ public class PalyerSnake02 : MonoBehaviour
         }
     }
 
-
+    public AudioSource audio;
     //以下是游戏逻辑实现
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.tag == "Food")
         {
+            audio.Play();
             Destroy(collision.gameObject);
             score += 100;
             Grow();
         }
         else if (collision.name == "key")
         {
+            audio.Play();
             Destroy(collision.gameObject);
             Destroy(GameObject.Find("lockedDoor"));
         }
@@ -170,6 +179,7 @@ public class PalyerSnake02 : MonoBehaviour
         Destroy(this);
         GameObject.Find("UIinformation").GetComponent<Canvas>().enabled = false;
         GameObject.Find("GameOverUI").GetComponent<Canvas>().enabled = true;
+        GameOverText.GetComponent<Text>().text = score.ToString();
         Time.timeScale = 0;
     }
     private void Pass()
